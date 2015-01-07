@@ -1,5 +1,6 @@
 from sklearn import svm
 from sklearn import datasets
+from sklearn.externals import joblib
 import pickle
 
 # build and store it
@@ -17,3 +18,7 @@ model = pickle.dumps(clf)
 pickled_clf = pickle.loads(model)
 crystall_ball = pickled_clf.predict(X[0])
 print(crystall_ball)
+
+# pickle it to disk
+joblib.dump(clf, 'digit_classifier.pkl')
+
